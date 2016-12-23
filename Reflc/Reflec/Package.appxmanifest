@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="6c27486b-7f6d-4434-9c21-7f2af36fa50d"
-    Publisher="CN=GeorgeH"
+    Name="7cdf8ed2-d0df-436a-8998-9d7f31a4cd55"
+    Publisher="CN=user"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="6c27486b-7f6d-4434-9c21-7f2af36fa50d" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="7cdf8ed2-d0df-436a-8998-9d7f31a4cd55" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Reflc</DisplayName>
-    <PublisherDisplayName>GeorgeH</PublisherDisplayName>
+    <DisplayName>Reflec</DisplayName>
+    <PublisherDisplayName>user</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Reflc.App">
+      EntryPoint="Reflec.App">
       <uap:VisualElements
-        DisplayName="Reflc"
+        DisplayName="Reflec"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Reflc"
+        Description="Reflec"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
