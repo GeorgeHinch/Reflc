@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Reflec.Classes;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,6 +32,15 @@ namespace Reflec
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            this.UnhandledException += (sender, e) =>
+            {
+                //e.Handled = true;
+
+                SlackSender.slackExceptionSender(e.Exception);
+                
+                Debug.WriteLine("Unhandeled: " + e.Exception);
+            };
         }
 
         /// <summary>

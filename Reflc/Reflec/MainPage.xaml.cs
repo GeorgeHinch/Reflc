@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Reflec.Assets.Weather;
+using Reflec.Classes;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,41 @@ namespace Reflec
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public static MainPage mainPage;
         public MainPage()
         {
             this.InitializeComponent();
+            mainPage = this;
+
+            DataBuilder.setWeatherIcon();
+            
+
+            //WeartherAnimation_Frame.Navigate(typeof(Moon_Animation), false);
+        }
+
+        private void Rain_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Rain_Animation), false);
+        }
+
+        private void Snow_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Snow_Animation), false);
+        }
+
+        private void Sun_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Sun_Animation), false);
+        }
+
+        private void Moon_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Moon_Animation), false);
+        }
+
+        private void Clouds_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Cloudy_Animation), false);
         }
     }
 }
