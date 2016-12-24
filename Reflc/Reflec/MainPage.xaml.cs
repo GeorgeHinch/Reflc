@@ -31,9 +31,6 @@ namespace Reflec
             mainPage = this;
 
             DataBuilder.setWeatherIcon();
-            
-
-            //WeartherAnimation_Frame.Navigate(typeof(Moon_Animation), false);
         }
 
         private void Rain_Click(object sender, RoutedEventArgs e)
@@ -51,9 +48,19 @@ namespace Reflec
             WeartherAnimation_Frame.Navigate(typeof(Sun_Animation), false);
         }
 
+        private void Sun_Cloud_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Sun_Cloud_Animation), false);
+        }
+
         private void Moon_Click(object sender, RoutedEventArgs e)
         {
             WeartherAnimation_Frame.Navigate(typeof(Moon_Animation), false);
+        }
+
+        private void Moon_Cloud_Click(object sender, RoutedEventArgs e)
+        {
+            WeartherAnimation_Frame.Navigate(typeof(Moon_Cloud_Animation), false);
         }
 
         private void Clouds_Click(object sender, RoutedEventArgs e)

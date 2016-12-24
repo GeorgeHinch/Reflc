@@ -98,6 +98,9 @@
     <Compile Include="Assets\Weather\Cloudy_Animation.xaml.cs">
       <DependentUpon>Cloudy_Animation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\Weather\Moon_Cloud_Animation.xaml.cs">
+      <DependentUpon>Moon_Cloud_Animation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Assets\Weather\Moon_Animation.xaml.cs">
       <DependentUpon>Moon_Animation.xaml</DependentUpon>
     </Compile>
@@ -106,6 +109,9 @@
     </Compile>
     <Compile Include="Assets\Weather\Snow_Animation.xaml.cs">
       <DependentUpon>Snow_Animation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Assets\Weather\Sun_Cloud_Animation.xaml.cs">
+      <DependentUpon>Sun_Cloud_Animation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Assets\Weather\Sun_Animation.xaml.cs">
       <DependentUpon>Sun_Animation.xaml</DependentUpon>
@@ -140,15 +146,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Assets\Weather\Cloudy.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Assets\Weather\Cloudy_Animation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\Weather\Moon.xaml">
+    <Page Include="Assets\Weather\Moon_Cloud_Animation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -156,45 +158,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\Weather\PartlyMoon.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Assets\Weather\Rainy-n.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Assets\Weather\Rainy.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Assets\Weather\Rain_Animation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Assets\Weather\Snow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Weather\Snow_Animation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Assets\Weather\Sunny-Fade.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Assets\Weather\Sunny.xaml">
+    <Page Include="Assets\Weather\Sun_Cloud_Animation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Weather\Sun_Animation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Assets\Weather\Tornado.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>

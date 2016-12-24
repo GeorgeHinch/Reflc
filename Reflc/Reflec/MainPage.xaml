@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    x:FieldModifier="Public">
+    x:FieldModifier="Public" Width="1080">
 
     <Grid Background="Black">
 
@@ -20,8 +20,12 @@
             <Button Content="Snow" Click="Snow_Click" Foreground="White" />
 
             <Button Content="Sun" Click="Sun_Click" Foreground="White" />
+            
+            <Button Content="Cloudy Sun" Click="Sun_Cloud_Click" Foreground="White" />
 
             <Button Content="Moon" Click="Moon_Click" Foreground="White" />
+
+            <Button Content="Cloudy Moon" Click="Moon_Cloud_Click" Foreground="White" />
 
             <Button Content="Clouds" Click="Clouds_Click" Foreground="White" />
         </StackPanel>
