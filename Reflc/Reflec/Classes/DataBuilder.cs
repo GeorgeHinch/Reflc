@@ -10,13 +10,15 @@ namespace Reflec.Classes
 {
     class DataBuilder
     {
-        #region Sets weather icon to appropriate animation based on OWM
+        #region Sets weather icon to appropriate icon based on OWM
         private static HashSet<int> weatherHash_Rain = new HashSet<int>() { 200, 201, 202, 210, 211, 212, 221, 230, 231, 232, 300, 301, 302, 310, 311, 312, 313, 314, 321, 500, 501, 502, 503, 504, 511, 520, 521, 522, 531 };
         private static HashSet<int> weatherHash_Snow = new HashSet<int>() { 600, 601, 602, 611, 612, 615, 616, 220, 621, 622 };
         private static HashSet<int> weatherHash_Clear = new HashSet<int>() { 800 };
         private static HashSet<int> weatherHash_FewClouds = new HashSet<int>() { 801 };
         private static HashSet<int> weatherHash_Clouds = new HashSet<int>() { 701, 802, 803, 804 };
-        public static void setWeatherIcon()
+
+        #region Sets weather animation on home
+        public static void setWeatherAnimation()
         {
             WeatherCurrent weather = OWM_GetWeather.getCurrent();
 
@@ -71,6 +73,69 @@ namespace Reflec.Classes
 
                 MainPage.mainPage.WeartherAnimation_Frame.Navigate(typeof(Page));
             }
+        }
+        #endregion
+
+        #region Sets weather icon on weather cards
+        public static string setWeatherIcon(int id)
+        {
+            string returnString;
+
+            if (weatherHash_Rain.Contains(id))
+            {
+                returnString = "ms-appx:///Assets/Weather/Still/Rain.png";
+            }
+
+            else if (weatherHash_Snow.Contains(id))
+            {
+                returnString = "ms-appx:///Assets/Weather/Still/Snow.png";
+            }
+
+            else if (weatherHash_Clear.Contains(id))
+            {
+                returnString = "ms-appx:///Assets/Weather/Still/Sun.png";
+            }
+
+            else if (weatherHash_FewClouds.Contains(id))
+            {
+                returnString = "ms-appx:///Assets/Weather/Still/PartlyCloudy.png";
+            }
+
+            else if (weatherHash_Clouds.Contains(id))
+            {
+                returnString = "ms-appx:///Assets/Weather/Still/Cloudy.png";
+            }
+
+            else
+            {
+                returnString = "ms-appx:///Assets/Square44x44Logo.png";
+            }
+
+            return returnString;
+        }
+        #endregion
+        #endregion
+
+        #region Builds day string based on unix DateTime
+        public static string dayBuilder(int dt)
+        {
+            string returnString;
+
+            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            returnString = dtDateTime.AddSeconds(dt).DayOfWeek.ToString();
+
+            return returnString;
+        }
+        #endregion
+
+        #region Builds a temp string
+        public static string tempBuilder(double temp)
+        {
+            string returnString;
+
+            returnString = Math.Round(temp, 0).ToString() + "°";
+
+            return returnString;
         }
         #endregion
     }

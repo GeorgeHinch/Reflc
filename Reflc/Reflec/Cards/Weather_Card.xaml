@@ -1,0 +1,84 @@
+﻿<Page
+    x:Class="Reflec.Cards.Weather_Card"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reflec.Cards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="600"
+    Height="375">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
+        
+        <TextBlock x:Name="WeatherHeadline_TextBlock" Text="Weather" FontWeight="Light" FontSize="20" Margin="25,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <Grid x:Name="Forecase_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="Forecast_Day1_Grid" Grid.Column="0" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="Forecast_Day1_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Image x:Name="Forecast_Day1_Date_Image" Source="ms-appx:///Assets/Square44x44Logo.png" Width="75" />
+
+                    <TextBlock x:Name="Forecast_Day1_Date_TextBlock" Text="Thursday" HorizontalAlignment="Center" Margin="0,25" FontSize="12" />
+
+                    <TextBlock x:Name="Forecast_Day1_TempHigh_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="20" />
+                    <TextBlock x:Name="Forecast_Day1_TempLow_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="15" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="Forecast_Day2_Grid" Grid.Column="1" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="Forecast_Day2_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Image x:Name="Forecast_Day2_Date_Image" Source="ms-appx:///Assets/Square44x44Logo.png" Width="75" />
+
+                    <TextBlock x:Name="Forecast_Day2_Date_TextBlock" Text="Thursday" HorizontalAlignment="Center" Margin="0,25" FontSize="12" />
+
+                    <TextBlock x:Name="Forecast_Day2_TempHigh_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="20" />
+                    <TextBlock x:Name="Forecast_Day2_TempLow_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="15" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="Forecast_Day3_Grid" Grid.Column="2" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="Forecast_Day3_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Image x:Name="Forecast_Day3_Date_Image" Source="ms-appx:///Assets/Square44x44Logo.png" Width="75" />
+
+                    <TextBlock x:Name="Forecast_Day3_Date_TextBlock" Text="Thursday" HorizontalAlignment="Center" Margin="0,25" FontSize="12" />
+
+                    <TextBlock x:Name="Forecast_Day3_TempHigh_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="20" />
+                    <TextBlock x:Name="Forecast_Day3_TempLow_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="15" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="Forecast_Day4_Grid" Grid.Column="3" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="Forecast_Day4_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Image x:Name="Forecast_Day4_Date_Image" Source="ms-appx:///Assets/Square44x44Logo.png" Width="75" />
+
+                    <TextBlock x:Name="Forecast_Day4_Date_TextBlock" Text="Thursday" HorizontalAlignment="Center" Margin="0,25" FontSize="12" />
+
+                    <TextBlock x:Name="Forecast_Day4_TempHigh_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="20" />
+                    <TextBlock x:Name="Forecast_Day4_TempLow_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="15" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="Forecast_Day5_Grid" Grid.Column="4">
+                <StackPanel x:Name="Forecast_Day5_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Image x:Name="Forecast_Day5_Date_Image" Source="ms-appx:///Assets/Square44x44Logo.png" Width="75" />
+
+                    <TextBlock x:Name="Forecast_Day5_Date_TextBlock" Text="Thursday" HorizontalAlignment="Center" Margin="0,25" FontSize="12" />
+
+                    <TextBlock x:Name="Forecast_Day5_TempHigh_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="20" />
+                    <TextBlock x:Name="Forecast_Day5_TempLow_TextBlock" Text="44°" HorizontalAlignment="Center" FontSize="15" Foreground="Gray" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <TextBlock x:Name="WeatherCity_TextBlock" Text="Seattle, WA" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
+
+    </Grid>
+</Page>

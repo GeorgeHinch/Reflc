@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reflec.Cards;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,8 @@ using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace Reflec.Classes
 {
@@ -49,8 +52,9 @@ namespace Reflec.Classes
             }
         }
 
-        public static WeatherForecast getForecast()
+        public static void getForecast()
         {
+            Frame buildFrame = new Frame();
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
 
             if (roamingSettings.Values["ZipCode"] == null)
@@ -64,7 +68,7 @@ namespace Reflec.Classes
 
             HttpRequestMessage request = new HttpRequestMessage(
                     HttpMethod.Get,
-                    $"api.openweathermap.org/data/2.5/forecast/daily?q={zip},{country}&mode=json&cnt=5&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
+                    $"http://api.openweathermap.org/data/2.5/forecast/daily?q={zip},{country}&mode=json&cnt=5&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
             HttpClient client = new HttpClient();
             var response = client.SendAsync(request).Result;
             if (response.StatusCode == HttpStatusCode.OK)
@@ -76,12 +80,14 @@ namespace Reflec.Classes
                     var serializer = new DataContractJsonSerializer(typeof(WeatherForecast));
                     var weatherDetails = (WeatherForecast)serializer.ReadObject(stream);
 
-                    return weatherDetails;
+                    buildFrame.Navigate(typeof(Weather_Card), weatherDetails);
+                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
                 }
             }
             else
             {
-                return null;
+                buildFrame.Navigate(typeof(Weather_Card), null);
+                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
             }
         }
     }
@@ -300,8 +306,8 @@ namespace Reflec.Classes
         [DataMember]
         public int cnt { get; set; }
 
-        [DataMember]
-        public IList<Forecast> list { get; set; }
+        [DataMember(Name = "list")]
+        public IList<Forecast> forecast { get; set; }
     }
     #endregion
 }

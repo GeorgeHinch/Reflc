@@ -30,7 +30,7 @@ namespace Reflec
             this.InitializeComponent();
             mainPage = this;
 
-            DataBuilder.setWeatherIcon();
+            DataBuilder.setWeatherAnimation();
         }
 
         private void Rain_Click(object sender, RoutedEventArgs e)
@@ -66,6 +66,11 @@ namespace Reflec
         private void Clouds_Click(object sender, RoutedEventArgs e)
         {
             WeartherAnimation_Frame.Navigate(typeof(Cloudy_Animation), false);
+        }
+
+        private void LoadWeather_Click(object sender, RoutedEventArgs e)
+        {
+            OWM_GetWeather.getForecast();
         }
     }
 }

@@ -116,6 +116,15 @@
     <Compile Include="Assets\Weather\Sun_Animation.xaml.cs">
       <DependentUpon>Sun_Animation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Fitbit_Card.xaml.cs">
+      <DependentUpon>Fitbit_Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Uber_Card.xaml.cs">
+      <DependentUpon>Uber_Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Weather_Card.xaml.cs">
+      <DependentUpon>Weather_Card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Classes\DataBuilder.cs" />
     <Compile Include="Classes\NYT_TopStories.cs" />
     <Compile Include="Classes\OWM_GetWeather.cs" />
@@ -132,6 +141,11 @@
     <None Include="Reflec_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Weather\Still\Cloudy.png" />
+    <Content Include="Assets\Weather\Still\PartlyCloudy.png" />
+    <Content Include="Assets\Weather\Still\Rain.png" />
+    <Content Include="Assets\Weather\Still\Snow.png" />
+    <Content Include="Assets\Weather\Still\Sun.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -171,6 +185,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Assets\Weather\Sun_Animation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Fitbit_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Uber_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Weather_Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
