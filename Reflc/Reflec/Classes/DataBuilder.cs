@@ -1,9 +1,11 @@
 ﻿using Reflec.Assets.Weather;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml.Controls;
 
 namespace Reflec.Classes
@@ -116,15 +118,50 @@ namespace Reflec.Classes
         #endregion
         #endregion
 
-        #region Builds day string based on unix DateTime
-        public static string dayBuilder(int dt)
+        #region Builds string based on unix DateTime
+        public static string dayBuilder(double dt)
         {
             string returnString;
 
-            DateTime dtDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
-            returnString = dtDateTime.AddSeconds(dt).DayOfWeek.ToString();
+            DateTime epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            returnString = epochDateTime.AddSeconds(dt).DayOfWeek.ToString();
 
             return returnString;
+        }
+
+        public static string arrivalTimeBuilder(object dt)
+        {
+            string returnString;
+
+            string wMili = dt.ToString();
+            string woMili = wMili.Substring(0, wMili.Length - 3);
+            double dtDouble = Double.Parse(woMili);
+
+            DateTime epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            DateTime dtDateTime = epochDateTime.AddSeconds(dtDouble);
+            TimeSpan diffTimeSpan = dtDateTime - DateTime.UtcNow;
+            
+            if(Math.Floor(diffTimeSpan.TotalMinutes) == 0)
+            {
+                returnString = "Now";
+            }
+            else
+            {
+                returnString = Math.Floor(diffTimeSpan.TotalMinutes).ToString() + " min";
+            }
+
+            return returnString;
+        }
+        #endregion
+
+        #region Builds color from hex
+        public static Color colorfromHexBuilder(string hex)
+        {
+            var r = Convert.ToByte(hex.Substring(0, 2), 16);
+            var g = Convert.ToByte(hex.Substring(2, 2), 16);
+            var b = Convert.ToByte(hex.Substring(4, 2), 16);
+
+            return Color.FromArgb(255, r, g, b);
         }
         #endregion
 

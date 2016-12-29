@@ -13,7 +13,7 @@
         
         <TextBlock x:Name="WeatherHeadline_TextBlock" Text="Weather" FontWeight="Light" FontSize="20" Margin="25,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
-        <Grid x:Name="Forecase_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+        <Grid x:Name="Forecast_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />

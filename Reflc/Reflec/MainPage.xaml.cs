@@ -72,5 +72,10 @@ namespace Reflec
         {
             OWM_GetWeather.getForecast();
         }
+
+        private void LoadTransit_Click(object sender, RoutedEventArgs e)
+        {
+            OBA_ADforStop.getStopAD();
+        }
     }
 }

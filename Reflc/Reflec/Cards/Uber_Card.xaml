@@ -1,0 +1,23 @@
+﻿<Page
+    x:Class="Reflec.Cards.Uber_Card"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reflec.Cards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="600"
+    Height="375">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
+
+        <Image x:Name="UberLogo_Image" Margin="25,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/Logos/Logo_Uber.png" Height="25"/>
+
+        <Grid x:Name="UberMap_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+            
+        </Grid>
+
+        <TextBlock x:Name="UberAdditionalInfo_TextBlock" Text="Seattle, WA" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
+
+    </Grid>
+</Page>

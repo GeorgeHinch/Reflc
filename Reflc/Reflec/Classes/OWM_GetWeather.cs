@@ -16,6 +16,7 @@ namespace Reflec.Classes
 {
     class OWM_GetWeather
     {
+        #region Gets current weather conditions
         public static WeatherCurrent getCurrent()
         {
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
@@ -51,7 +52,9 @@ namespace Reflec.Classes
                 return null;
             }
         }
+        #endregion
 
+        #region Gets current weather forecast
         public static void getForecast()
         {
             Frame buildFrame = new Frame();
@@ -90,6 +93,7 @@ namespace Reflec.Classes
                 MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
             }
         }
+        #endregion
     }
 
     #region Class for current weather serialization

@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="Reflec.Cards.OBA_Card"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reflec.Cards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="600"
+    Height="375">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
+
+        <TextBlock x:Name="transitHeadline_TextBlock" Text="Transit" FontWeight="Light" FontSize="20" Margin="25,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <Grid x:Name="TransitArrivals_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="OBA_Arrival1_Grid" Grid.Column="0" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="OBA_Arrival1_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Grid>
+                        <Ellipse x:Name="OBA_Arrival1_Operator_Ellipse" Width="65" Height="65" Fill="#FF51BBCE" />
+                        <TextBlock x:Name="OBA_Arrival1_Route_TextBlock" Text="550" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" />
+                    </Grid>
+
+                    <TextBlock x:Name="OBA_Arrival1_Headsign_TextBlock" Text="Downtown Seattle" HorizontalAlignment="Center" Margin="0,25" FontSize="12" Width="100" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+
+                    <TextBlock x:Name="OBA_Arrival1_Time_TextBlock" Text="15 min" HorizontalAlignment="Center" FontSize="20" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="OBA_Arrival2_Grid" Grid.Column="1" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="OBA_Arrival2_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Grid>
+                        <Ellipse x:Name="OBA_Arrival2_Operator_Ellipse" Width="65" Height="65" Fill="#FF51BBCE" />
+                        <TextBlock x:Name="OBA_Arrival2_Route_TextBlock" Text="550" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" />
+                    </Grid>
+
+                    <TextBlock x:Name="OBA_Arrival2_Headsign_TextBlock" Text="Downtown Seattle" HorizontalAlignment="Center" Margin="0,25" FontSize="12" Width="100" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+
+                    <TextBlock x:Name="OBA_Arrival2_Time_TextBlock" Text="15 min" HorizontalAlignment="Center" FontSize="20" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="OBA_Arrival3_Grid" Grid.Column="2" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="OBA_Arrival3_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Grid>
+                        <Ellipse x:Name="OBA_Arrival3_Operator_Ellipse" Width="65" Height="65" Fill="#FF51BBCE" />
+                        <TextBlock x:Name="OBA_Arrival3_Route_TextBlock" Text="550" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" />
+                    </Grid>
+
+                    <TextBlock x:Name="OBA_Arrival3_Headsign_TextBlock" Text="Downtown Seattle" HorizontalAlignment="Center" Margin="0,25" FontSize="12" Width="100" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+
+                    <TextBlock x:Name="OBA_Arrival3_Time_TextBlock" Text="15 min" HorizontalAlignment="Center" FontSize="20" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="OBA_Arrival4_Grid" Grid.Column="3" BorderBrush="#FF666666" BorderThickness="0,0,0.25,0">
+                <StackPanel x:Name="OBA_Arrival4_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Grid>
+                        <Ellipse x:Name="OBA_Arrival4_Operator_Ellipse" Width="65" Height="65" Fill="#FF51BBCE" />
+                        <TextBlock x:Name="OBA_Arrival4_Route_TextBlock" Text="550" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" />
+                    </Grid>
+
+                    <TextBlock x:Name="OBA_Arrival4_Headsign_TextBlock" Text="Downtown Seattle" HorizontalAlignment="Center" Margin="0,25" FontSize="12" Width="100" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+
+                    <TextBlock x:Name="OBA_Arrival4_Time_TextBlock" Text="15 min" HorizontalAlignment="Center" FontSize="20" />
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="OBA_Arrival5_Grid" Grid.Column="4">
+                <StackPanel x:Name="OBA_Arrival5_Stackpanel" Orientation="Vertical" VerticalAlignment="Center">
+                    <Grid>
+                        <Ellipse x:Name="OBA_Arrival5_Operator_Ellipse" Width="65" Height="65" Fill="#FF51BBCE" />
+                        <TextBlock x:Name="OBA_Arrival5_Route_TextBlock" Text="550" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="22" />
+                    </Grid>
+
+                    <TextBlock x:Name="OBA_Arrival5_Headsign_TextBlock" Text="Downtown Seattle" HorizontalAlignment="Center" Margin="0,25" FontSize="12" Width="100" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+
+                    <TextBlock x:Name="OBA_Arrival5_Time_TextBlock" Text="15 min" HorizontalAlignment="Center" FontSize="20" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <TextBlock x:Name="TransitStopInfo_TextBlock" Text="S Jackson St &amp; 12th Ave S" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
+
+    </Grid>
+</Page>
