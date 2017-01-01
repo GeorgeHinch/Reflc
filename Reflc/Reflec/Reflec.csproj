@@ -129,10 +129,12 @@
       <DependentUpon>Weather_Card.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataBuilder.cs" />
+    <Compile Include="Classes\Google_GeoResponse.cs" />
     <Compile Include="Classes\LUIS_Request.cs" />
     <Compile Include="Classes\NYT_TopStories.cs" />
     <Compile Include="Classes\OBA_ADforStop.cs" />
     <Compile Include="Classes\OWM_GetWeather.cs" />
+    <Compile Include="Classes\Reflec_Tasks.cs" />
     <Compile Include="Classes\SlackSender.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>

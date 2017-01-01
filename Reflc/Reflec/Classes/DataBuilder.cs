@@ -1,8 +1,13 @@
-﻿using Reflec.Assets.Weather;
+﻿using Newtonsoft.Json;
+using Reflec.Assets.Weather;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI;
@@ -22,7 +27,7 @@ namespace Reflec.Classes
         #region Sets weather animation on home
         public static void setWeatherAnimation()
         {
-            WeatherCurrent weather = OWM_GetWeather.getCurrent();
+            WeatherCurrent weather = OWM_GetWeather.getCurrent(null);
 
             if (weatherHash_Rain.Contains(weather.weather[0].id)){
                 if (DateTime.Now.Hour < 8 || DateTime.Now.Hour > 18)
@@ -173,6 +178,15 @@ namespace Reflec.Classes
             returnString = Math.Round(temp, 0).ToString() + "°";
 
             return returnString;
+        }
+        #endregion
+
+        #region Builds geo data from city
+        public static string geoCityBuilder(string address)
+        {
+            geoResponse geo = Google_GeoResponse.getGeoCodedResults(address);
+
+            return geo.results[0].formatted_address.Replace(", ", ",").Replace(" ", "%20");
         }
         #endregion
     }

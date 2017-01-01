@@ -1,0 +1,100 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Reflec.Classes
+{
+    public class Reflec_Tasks
+    {
+        public static async Task clear()
+        {
+            MainPage.mainPage.Main_StackPanel.Children.Clear();
+        }
+
+        public static async Task getForecast(TopScoringIntent intent)
+        {
+            string location = "";
+            string date = "";
+
+            /*foreach(Action a in intent.actions)
+            {
+                foreach(Parameter p in a.parameters)
+                {
+                    if(p.name == "Location")
+                    {
+                        location = DataBuilder.geoCityBuilder(p.value[0].entity);
+                    }
+
+                    if(p.name == "Date")
+                    {
+                        date = p.value[0].entity;
+                    }
+                }
+            }*/
+
+            if (location != "" && date != "")
+            {
+                OWM_GetWeather.getForecast(null);
+            }
+
+            else if (location != "")
+            {
+                OWM_GetWeather.getForecast(location);
+            }
+
+            else if (date != "")
+            {
+                OWM_GetWeather.getForecast(null);
+            }
+
+            else
+            {
+                OWM_GetWeather.getForecast(null);
+            }
+        }
+
+        public static async Task getWeather(TopScoringIntent intent)
+        {
+            string location = "";
+            string date = "";
+
+            /*foreach (Action a in intent.actions)
+            {
+                foreach (Parameter p in a.parameters)
+                {
+                    if (p.name == "Location")
+                    {
+                        location = DataBuilder.geoCityBuilder(p.value[0].entity);
+                    }
+                }
+            }*/
+
+            if (location != "" && date != "")
+            {
+                OWM_GetWeather.getCurrent(null);
+            }
+
+            else if (location != "")
+            {
+                OWM_GetWeather.getCurrent(location);
+            }
+
+            else if (date != "")
+            {
+                OWM_GetWeather.getCurrent(null);
+            }
+
+            else
+            {
+                OWM_GetWeather.getCurrent(null);
+            }
+        }
+
+        public static async Task getBusData(TopScoringIntent intent)
+        {
+            OBA_ADforStop.getStopAD();
+        }
+    }
+}

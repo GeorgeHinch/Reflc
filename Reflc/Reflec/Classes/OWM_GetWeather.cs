@@ -17,7 +17,7 @@ namespace Reflec.Classes
     class OWM_GetWeather
     {
         #region Gets current weather conditions
-        public static WeatherCurrent getCurrent()
+        public static WeatherCurrent getCurrent(string city)
         {
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
 
@@ -27,12 +27,15 @@ namespace Reflec.Classes
             }
 
             string zip = (string)roamingSettings.Values["ZipCode"];*/
-            string zip = "98122";
-            string country = "US";
+
+            if (city == null)
+            {
+                city = "98122,US";
+            }
 
             HttpRequestMessage request = new HttpRequestMessage(
                     HttpMethod.Get,
-                    $"http://api.openweathermap.org/data/2.5/weather?zip={zip},{country}&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
+                    $"http://api.openweathermap.org/data/2.5/weather?zip={city}&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
             HttpClient client = new HttpClient();
             var response = client.SendAsync(request).Result;
             if (response.StatusCode == HttpStatusCode.OK)
@@ -55,7 +58,7 @@ namespace Reflec.Classes
         #endregion
 
         #region Gets current weather forecast
-        public static void getForecast()
+        public static void getForecast(string city)
         {
             Frame buildFrame = new Frame();
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
@@ -66,12 +69,15 @@ namespace Reflec.Classes
             }
 
             string zip = (string)roamingSettings.Values["ZipCode"];*/
-            string zip = "98122";
-            string country = "US";
+
+            if (city == null)
+            {
+                city = "98122,US";
+            }
 
             HttpRequestMessage request = new HttpRequestMessage(
                     HttpMethod.Get,
-                    $"http://api.openweathermap.org/data/2.5/forecast/daily?q={zip},{country}&mode=json&cnt=5&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
+                    $"http://api.openweathermap.org/data/2.5/forecast/daily?q={city}&mode=json&cnt=5&units=imperial&APPID=e1e2647eeddb5412d5c4ee2fef620871");
             HttpClient client = new HttpClient();
             var response = client.SendAsync(request).Result;
             if (response.StatusCode == HttpStatusCode.OK)
