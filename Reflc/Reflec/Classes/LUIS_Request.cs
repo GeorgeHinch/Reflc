@@ -42,6 +42,9 @@ namespace Reflec.Classes
                         case "GetBusData":
                             await Reflec_Tasks.getBusData(Data.topScoringIntent);
                             break;
+                        case "GetStopData":
+                            await Reflec_Tasks.getStopData(Data.topScoringIntent);
+                            break;
                     }
                 }
             }

@@ -336,7 +336,12 @@ namespace Reflec
 
         private void LoadTransit_Click(object sender, RoutedEventArgs e)
         {
-            OBA_ADforStop.getStopAD();
+            OBA_Request.getStopAD();
+        }
+
+        private void LoadTransitStop_Click(object sender, RoutedEventArgs e)
+        {
+            OBA_Request.getNearbyStop();
         }
     }
 }

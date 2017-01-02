@@ -94,7 +94,12 @@ namespace Reflec.Classes
 
         public static async Task getBusData(TopScoringIntent intent)
         {
-            OBA_ADforStop.getStopAD();
+            OBA_Request.getStopAD();
+        }
+
+        public static async Task getStopData(TopScoringIntent intent)
+        {
+            OBA_Request.getNearbyStop();
         }
     }
 }

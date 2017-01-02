@@ -122,6 +122,9 @@
     <Compile Include="Cards\OBA_Card.xaml.cs">
       <DependentUpon>OBA_Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\OBA_NearbyStops_Card.xaml.cs">
+      <DependentUpon>OBA_NearbyStops_Card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cards\Uber_Card.xaml.cs">
       <DependentUpon>Uber_Card.xaml</DependentUpon>
     </Compile>
@@ -132,7 +135,7 @@
     <Compile Include="Classes\Google_GeoResponse.cs" />
     <Compile Include="Classes\LUIS_Request.cs" />
     <Compile Include="Classes\NYT_TopStories.cs" />
-    <Compile Include="Classes\OBA_ADforStop.cs" />
+    <Compile Include="Classes\OBA_Request.cs" />
     <Compile Include="Classes\OWM_GetWeather.cs" />
     <Compile Include="Classes\Reflec_Tasks.cs" />
     <Compile Include="Classes\SlackSender.cs" />
@@ -202,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cards\OBA_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\OBA_NearbyStops_Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

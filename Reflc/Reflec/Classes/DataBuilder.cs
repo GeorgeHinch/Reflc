@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Reflec.Assets.Weather;
+using Reflec.Classes;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -187,6 +188,37 @@ namespace Reflec.Classes
             geoResponse geo = Google_GeoResponse.getGeoCodedResults(address);
 
             return geo.results[0].formatted_address.Replace(", ", ",").Replace(" ", "%20");
+        }
+        #endregion
+
+        #region Builds bus route string from OBA data
+        public static string obaRouteBuilder(OBA_NearbyStop nearby, IList<string> stops)
+        {
+            bool isFirst = true;
+            StringBuilder returnString = new StringBuilder();
+
+            returnString.Append("Routes: ");
+
+            foreach (string s in stops)
+            {
+                foreach(Route r in nearby.data.references.routes)
+                {
+                    if (s == r.id)
+                    {
+                        if (isFirst)
+                        {
+                            returnString.Append(r.shortName);
+                            isFirst = false;
+                        }
+                        else
+                        {
+                            returnString.Append(", " + r.shortName);
+                        }
+                    }
+                }
+            }
+
+            return returnString.ToString();
         }
         #endregion
     }

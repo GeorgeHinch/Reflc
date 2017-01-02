@@ -33,7 +33,7 @@
 
             <Button Content="Load Weather" Click="LoadWeather_Click" Foreground="White" />
 
-            <Button Content="Load Transit" Click="LoadTransit_Click" Foreground="White" />
+            <Button Content="Load Transit" Click="LoadTransitStop_Click" Foreground="White" />
         </StackPanel>
 
     </Grid>

@@ -13,14 +13,15 @@ using Windows.UI.Xaml.Controls;
 
 namespace Reflec.Classes
 {
-    class OBA_ADforStop
+    class OBA_Request
     {
+        private static string _apiKey = "TEST";
+
         #region Gets data for OneBusAway stop
         public static void getStopAD()
         {
             Frame buildFrame = new Frame();
-
-            string _apiKey = "TEST";
+            
             string stop = "1_3600";
 
             HttpRequestMessage request = new HttpRequestMessage(
@@ -38,6 +39,40 @@ namespace Reflec.Classes
                     var stopDetails = (OBA_StopAD)serializer.ReadObject(stream);
 
                     buildFrame.Navigate(typeof(OBA_Card), stopDetails);
+                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                }
+            }
+            else
+            {
+                buildFrame.Navigate(typeof(OBA_Card), null);
+                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+            }
+        }
+        #endregion
+
+        #region Gets data for OneBusAway stop
+        public static void getNearbyStop()
+        {
+            Frame buildFrame = new Frame();
+            
+            string lat = "47.602098";
+            string lon = "-122.316905";
+
+            HttpRequestMessage request = new HttpRequestMessage(
+                    HttpMethod.Get,
+                    $"http://api.pugetsound.onebusaway.org/api/where/stops-for-location.json?key={_apiKey}&lat={lat}&lon={lon}");
+            HttpClient client = new HttpClient();
+            var response = client.SendAsync(request).Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = response.Content.ReadAsStringAsync().Result;
+                var bytes = Encoding.Unicode.GetBytes(result);
+                using (MemoryStream stream = new MemoryStream(bytes))
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(OBA_NearbyStop));
+                    var stopNearby = (OBA_NearbyStop)serializer.ReadObject(stream);
+
+                    buildFrame.Navigate(typeof(OBA_NearbyStops_Card), stopNearby);
                     MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
                 }
             }
@@ -411,10 +446,71 @@ namespace Reflec.Classes
 
         [DataMember]
         public References references { get; set; }
+
+        [DataMember]
+        public bool limitExceeded { get; set; }
+
+        [DataMember(Name = "list")]
+        public IList<OBAList> list { get; set; }
+
+        [DataMember]
+        public bool outOfRange { get; set; }
     }
 
     [DataContract]
     public class OBA_StopAD
+    {
+        [DataMember]
+        public int code { get; set; }
+
+        [DataMember]
+        public long currentTime { get; set; }
+
+        [DataMember]
+        public Data data { get; set; }
+
+        [DataMember]
+        public string text { get; set; }
+
+        [DataMember]
+        public int version { get; set; }
+    }
+    #endregion
+
+    #region Class for nearby stop serialization
+    [DataContract]
+    public class OBAList
+    {
+        [DataMember]
+        public string code { get; set; }
+
+        [DataMember]
+        public string direction { get; set; }
+
+        [DataMember]
+        public string id { get; set; }
+
+        [DataMember]
+        public double lat { get; set; }
+
+        [DataMember]
+        public int locationType { get; set; }
+
+        [DataMember]
+        public double lon { get; set; }
+
+        [DataMember]
+        public string name { get; set; }
+
+        [DataMember]
+        public IList<string> routeIds { get; set; }
+
+        [DataMember]
+        public string wheelchairBoarding { get; set; }
+    }
+
+    [DataContract]
+    public class OBA_NearbyStop
     {
         [DataMember]
         public int code { get; set; }
