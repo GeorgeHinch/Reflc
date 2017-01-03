@@ -45,11 +45,16 @@ namespace Reflec.Classes
                         case "GetStopData":
                             await Reflec_Tasks.getStopData(Data.topScoringIntent);
                             break;
+                        case "GetTopStories":
+                            await Reflec_Tasks.getTopStories(Data.topScoringIntent);
+                            break;
                     }
                 }
             }
         }
     }
+
+    #region Class for serializing LUIS requests
     public class Resolution
     {
         public string date { get; set; }
@@ -115,4 +120,5 @@ namespace Reflec.Classes
         public IList<Entity> entities { get; set; }
         public Dialog dialog { get; set; }
     }
+    #endregion
 }

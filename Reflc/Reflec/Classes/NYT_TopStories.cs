@@ -1,14 +1,54 @@
-﻿using System;
+﻿using Reflec.Cards;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace Reflec.Classes
 {
+    public class NYT_TopStories
+    {
+        private static string _apiKey = "a5fdde8f2d6d6ef2ff58ae1d2eeffa3c:4:74641225";
+        public static void getTopStories()
+        {
+            Frame buildFrame = new Frame();
+
+            HttpRequestMessage request = new HttpRequestMessage(
+                    HttpMethod.Get,
+                    $"http://api.nytimes.com/svc/topstories/v1/home.json?api-key={_apiKey}");
+            HttpClient client = new HttpClient();
+            var response = client.SendAsync(request).Result;
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                var result = response.Content.ReadAsStringAsync().Result;
+                var bytes = Encoding.Unicode.GetBytes(result);
+                using (MemoryStream stream = new MemoryStream(bytes))
+                {
+                    var serializer = new DataContractJsonSerializer(typeof(NYT_TopStoriesData));
+                    var topStories = (NYT_TopStoriesData)serializer.ReadObject(stream);
+
+                    buildFrame.Navigate(typeof(NYT_TopStories_Card), topStories);
+                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                }
+            }
+            else
+            {
+                buildFrame.Navigate(typeof(NYT_TopStories_Card), null);
+                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+            }
+        } 
+    }
+
+    #region Serialization for NYT top stories
     [DataContract]
-    class NYT_TopStories
+    public class NYT_TopStoriesData
     {
         [DataMember]
         public string status { get; set; }
@@ -30,7 +70,7 @@ namespace Reflec.Classes
     }
 
     [DataContract]
-    class NYT_Result
+    public class NYT_Result
     {
         [DataMember]
         public string section { get; set; }
@@ -85,7 +125,7 @@ namespace Reflec.Classes
     }
 
     [DataContract]
-    class Multimedia
+    public class Multimedia
     {
         [DataMember]
         public string url { get; set; }
@@ -111,4 +151,5 @@ namespace Reflec.Classes
         [DataMember]
         public string copyright { get; set; }
     }
+    #endregion
 }

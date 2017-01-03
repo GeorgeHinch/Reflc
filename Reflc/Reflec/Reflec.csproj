@@ -119,6 +119,9 @@
     <Compile Include="Cards\Fitbit_Card.xaml.cs">
       <DependentUpon>Fitbit_Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\NYT_TopStories_Card.xaml.cs">
+      <DependentUpon>NYT_TopStories_Card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cards\OBA_Card.xaml.cs">
       <DependentUpon>OBA_Card.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Logos\Logo_Fitbit.png" />
+    <Content Include="Assets\Logos\Logo_NYT.png" />
     <Content Include="Assets\Logos\Logo_Uber.png" />
     <Content Include="Assets\Weather\Still\Cloudy.png" />
     <Content Include="Assets\Weather\Still\PartlyCloudy.png" />
@@ -201,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cards\Fitbit_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\NYT_TopStories_Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

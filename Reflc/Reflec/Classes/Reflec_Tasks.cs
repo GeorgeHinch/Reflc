@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -100,6 +101,11 @@ namespace Reflec.Classes
         public static async Task getStopData(TopScoringIntent intent)
         {
             OBA_Request.getNearbyStop();
+        }
+
+        public static async Task getTopStories(TopScoringIntent intent)
+        {
+            NYT_TopStories.getTopStories();
         }
     }
 }

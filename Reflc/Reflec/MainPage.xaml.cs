@@ -343,5 +343,10 @@ namespace Reflec
         {
             OBA_Request.getNearbyStop();
         }
+
+        private void LoadTopStory_Click(object sender, RoutedEventArgs e)
+        {
+            NYT_TopStories.getTopStories();
+        }
     }
 }
