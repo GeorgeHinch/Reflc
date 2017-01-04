@@ -142,6 +142,7 @@
     <Compile Include="Classes\OWM_GetWeather.cs" />
     <Compile Include="Classes\Reflec_Tasks.cs" />
     <Compile Include="Classes\SlackSender.cs" />
+    <Compile Include="Classes\YDN_GetStocks.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

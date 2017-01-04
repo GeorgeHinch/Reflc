@@ -48,6 +48,9 @@ namespace Reflec.Classes
                         case "GetTopStories":
                             await Reflec_Tasks.getTopStories(Data.topScoringIntent);
                             break;
+                        case "GetStockData":
+                            await Reflec_Tasks.getTopStories(Data.topScoringIntent);
+                            break;
                     }
                 }
             }
