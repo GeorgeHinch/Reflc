@@ -158,6 +158,26 @@ namespace Reflec.Classes
 
             return returnString;
         }
+
+        public static string epochAMPM(int it)
+        {
+            string returnString;
+
+            DateTime epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            returnString = epochDateTime.AddSeconds(it).ToString("h:mm tt");
+
+            return returnString;
+        }
+
+        public static DateTime epochDateTimeBuilder(int it)
+        {
+            DateTime returnDT;
+
+            DateTime epochDateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            returnDT = epochDateTime.AddSeconds(it);
+
+            return returnDT;
+        }
         #endregion
 
         #region Builds color from hex
@@ -220,6 +240,95 @@ namespace Reflec.Classes
 
             return returnString.ToString();
         }
+        #endregion
+
+        #region Builds flight info
+        #region Builds flight status from time
+        public static string buildFlightStatus(FlightStats flight)
+        {
+            string returnString;
+
+            if (epochDateTimeBuilder(flight.payload.statusData.depSchdUTC) > DateTime.UtcNow)
+            {
+                returnString = "Scheduled";
+            }
+
+            else if (epochDateTimeBuilder(flight.payload.statusData.depSchdUTC) < DateTime.UtcNow && epochDateTimeBuilder(flight.payload.statusData.arrEstUTC) > DateTime.UtcNow)
+            {
+                returnString = "In Progress";
+            }
+
+            else if (flight.payload.statusData.arrActUTC != null && epochDateTimeBuilder(flight.payload.statusData.arrActUTC.Value) < DateTime.UtcNow)
+            {
+                returnString = "Arrived";
+            }
+
+            else
+            {
+                returnString = "Not Available";
+            }
+
+            return returnString;
+        }
+        #endregion
+
+        #region Builds gate string
+        public static string buildFlightGate(FlightStats flight)
+        {
+            string returnString;
+
+            if (flight.payload.flightData.arrivalTerminal != null && flight.payload.flightData.arrivalGate != null)
+            {
+                returnString = flight.payload.flightData.arrivalTerminal + flight.payload.flightData.arrivalGate;
+            }
+            
+            else if(flight.payload.flightData.arrivalTerminal == null && flight.payload.flightData.arrivalGate != null)
+            {
+                returnString = flight.payload.flightData.arrivalGate;
+            }
+
+            else if (flight.payload.flightData.arrivalTerminal != null && flight.payload.flightData.arrivalGate == null)
+            {
+                returnString = "Terminal " + flight.payload.flightData.arrivalTerminal;
+            }
+
+            else 
+            {
+                returnString = "Unknown";
+            }
+
+            return returnString;
+        }
+        #endregion
+
+        #region Builds flight progress int
+        public static int buildFlightProgress(FlightStats flight)
+        {
+            int returnInt;
+
+            if (epochDateTimeBuilder(flight.payload.statusData.depSchdUTC) > DateTime.UtcNow)
+            {
+                returnInt = 0;
+            }
+
+            else if (epochDateTimeBuilder(flight.payload.statusData.depSchdUTC) < DateTime.UtcNow && epochDateTimeBuilder(flight.payload.statusData.arrEstUTC) > DateTime.UtcNow)
+            {
+                returnInt = 50;
+            }
+
+            else if (flight.payload.statusData.arrActUTC != null && epochDateTimeBuilder(flight.payload.statusData.arrActUTC.Value) < DateTime.UtcNow)
+            {
+                returnInt = 100;
+            }
+
+            else
+            {
+                returnInt = 0;
+            }
+
+            return returnInt;
+        }
+        #endregion
         #endregion
     }
 }

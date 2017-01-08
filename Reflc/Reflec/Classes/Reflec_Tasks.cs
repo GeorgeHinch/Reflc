@@ -122,5 +122,10 @@ namespace Reflec.Classes
         {
             YDN_GetStocks.getStockData(intent.actions[0].parameters[0].value[0].entity);
         }
+
+        public static async Task getFlight(TopScoringIntent intent)
+        {
+            PF_FlightData.getFlightData(intent.actions[0].parameters[0].value[0].entity);
+        }
     }
 }

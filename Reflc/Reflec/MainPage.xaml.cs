@@ -358,5 +358,10 @@ namespace Reflec
         {
             ESPN_SportsData.getSportData("seahawks");
         }
+
+        private void LoadFlight_Click(object sender, RoutedEventArgs e)
+        {
+            PF_FlightData.getFlightData("UA128");
+        }
     }
 }

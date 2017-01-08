@@ -38,6 +38,8 @@
             <Button Content="Load GOOG" Click="LoadStocks_Click" Foreground="White" />
             
             <Button Content="Load Sports" Click="LoadSports_Click" Foreground="White" />
+
+            <Button Content="Load Flight" Click="LoadFlight_Click" Foreground="White" />
         </StackPanel>
 
     </Grid>

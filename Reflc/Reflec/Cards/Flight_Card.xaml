@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="Reflec.Cards.Flight_Card"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Reflec.Cards"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="600"
+    Height="375">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
+        <TextBlock x:Name="FlightHeadline_TextBlock" Text="Flight Status" FontWeight="Light" FontSize="20" Margin="25,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+
+        <Grid x:Name="FlightData_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="AirlineFlight_Textblock" Text="American Airlines (AA123)" HorizontalAlignment="Center" FontSize="24" />
+                <TextBlock x:Name="AirlineStatus_Textblock" Text="In Progress" HorizontalAlignment="Center" FontSize="15" />
+
+                <Grid Width="500" Margin="0,40,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Name="DepartAirport_Textblock" Grid.Column="0" Text="DFW" HorizontalAlignment="Left" Margin="0,0,0,2" />
+
+                    <ProgressBar x:Name="FlightProg_ProgressBar" Grid.Column="1" Margin="15,0,15,0" Value="70" MinHeight="3" Height="3" Background="#FFE4E4E4" />
+                    <Ellipse x:Name="FlightProg_Start_Ellipse" Grid.Column="1" Width="10" Height="10" HorizontalAlignment="Left" Margin="10,0,0,0" Fill="#FF0078D7" />
+                    <Ellipse x:Name="FlightProg_End_Ellipse" Grid.Column="1" Width="10" Height="10" HorizontalAlignment="Right" Margin="0,0,10,0" Fill="#FFE4E4E4" />
+
+                    <TextBlock x:Name="ArriveAirport_Textblock" Grid.Column="2" Text="HNL" HorizontalAlignment="Right" Margin="0,0,0,2" />
+                </Grid>
+
+                <Grid Width="500">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="0">
+                        <TextBlock x:Name="DepartTime_Textblock" Text="9:40 AM" FontWeight="Light" FontSize="24" />
+                        <TextBlock x:Name="DepartSchedTime_Textblock" Text="sched. 9:05 AM" FontWeight="Light" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Vertical" Grid.Column="1">
+                        <TextBlock x:Name="ArriveTime_Textblock" Text="2:42 PM" FontWeight="Light" FontSize="24" HorizontalAlignment="Right" />
+                        <TextBlock x:Name="ArriveSchedTime_Textblock" Text="sched. 1:34 PM" FontWeight="Light" HorizontalAlignment="Right" />
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock x:Name="GateInfo_Textblock" Text="Arrival Gate: M17" HorizontalAlignment="Center" Margin="0,25,0,0" />
+            </StackPanel>
+        </Grid>
+
+        <TextBlock x:Name="FlightAdditionalInfo_TextBlock" Text="AA123 - In Progress" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
+
+    </Grid>
+</Page>
