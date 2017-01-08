@@ -1,5 +1,5 @@
-﻿<Page xmlns:Chart="using:Syncfusion.UI.Xaml.Charts" 
-    x:Class="Reflec.Cards.Fitbit_Card"
+﻿<Page
+    x:Class="Reflec.Cards.Sport_Card"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Reflec.Cards"
@@ -11,12 +11,12 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
         <StackPanel Orientation="Horizontal">
-            <Image x:Name="FitbitLogo_Image" Margin="25,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/Logos/Logo_Fitbit.png" Height="25"/>
-            <TextBlock x:Name="Logo_TextBlock" Text="Weight" FontWeight="Light" FontSize="20" Margin="7,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <Image x:Name="ESPNLogo_Image" Margin="25,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/Logos/Logo_ESPN.png" Height="25"/>
+            <TextBlock x:Name="Logo_TextBlock" Text="Football" FontWeight="Light" FontSize="20" Margin="7,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
         </StackPanel>
 
         <Grid x:Name="FitbitGraph_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
-            
+
         </Grid>
 
         <TextBlock x:Name="FitbitAdditionalInfo_TextBlock" Text="Seattle, WA" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
