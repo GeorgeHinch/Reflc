@@ -119,6 +119,9 @@
     <Compile Include="Cards\Fitbit_Card.xaml.cs">
       <DependentUpon>Fitbit_Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Flight_Card.xaml.cs">
+      <DependentUpon>Flight_Card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cards\NYT_TopStories_Card.xaml.cs">
       <DependentUpon>NYT_TopStories_Card.xaml</DependentUpon>
     </Compile>
@@ -128,6 +131,12 @@
     <Compile Include="Cards\OBA_NearbyStops_Card.xaml.cs">
       <DependentUpon>OBA_NearbyStops_Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Sport_Card.xaml.cs">
+      <DependentUpon>Sport_Card.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cards\Stock_Card.xaml.cs">
+      <DependentUpon>Stock_Card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cards\Uber_Card.xaml.cs">
       <DependentUpon>Uber_Card.xaml</DependentUpon>
     </Compile>
@@ -135,11 +144,13 @@
       <DependentUpon>Weather_Card.xaml</DependentUpon>
     </Compile>
     <Compile Include="Classes\DataBuilder.cs" />
+    <Compile Include="Classes\ESPN_SportsData.cs" />
     <Compile Include="Classes\Google_GeoResponse.cs" />
     <Compile Include="Classes\LUIS_Request.cs" />
     <Compile Include="Classes\NYT_TopStories.cs" />
     <Compile Include="Classes\OBA_Request.cs" />
     <Compile Include="Classes\OWM_GetWeather.cs" />
+    <Compile Include="Classes\PF_FlightData.cs" />
     <Compile Include="Classes\Reflec_Tasks.cs" />
     <Compile Include="Classes\SlackSender.cs" />
     <Compile Include="Classes\YDN_GetStocks.cs" />
@@ -155,6 +166,7 @@
     <None Include="Reflec_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Logos\Logo_ESPN.png" />
     <Content Include="Assets\Logos\Logo_Fitbit.png" />
     <Content Include="Assets\Logos\Logo_NYT.png" />
     <Content Include="Assets\Logos\Logo_Uber.png" />
@@ -209,6 +221,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Cards\Flight_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Cards\NYT_TopStories_Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -218,6 +234,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cards\OBA_NearbyStops_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Sport_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Stock_Card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

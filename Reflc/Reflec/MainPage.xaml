@@ -34,6 +34,10 @@
             <Button Content="Load Weather" Click="LoadWeather_Click" Foreground="White" />
 
             <Button Content="Load NYT" Click="LoadTopStory_Click" Foreground="White" />
+
+            <Button Content="Load GOOG" Click="LoadStocks_Click" Foreground="White" />
+            
+            <Button Content="Load Sports" Click="LoadSports_Click" Foreground="White" />
         </StackPanel>
 
     </Grid>

@@ -49,6 +49,9 @@ namespace Reflec.Classes
                             await Reflec_Tasks.getTopStories(Data.topScoringIntent);
                             break;
                         case "GetStockData":
+                            await Reflec_Tasks.getStockData(Data.topScoringIntent);
+                            break;
+                        case "GetHoroscope":
                             await Reflec_Tasks.getTopStories(Data.topScoringIntent);
                             break;
                     }

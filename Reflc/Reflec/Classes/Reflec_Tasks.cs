@@ -112,5 +112,15 @@ namespace Reflec.Classes
         {
             YDN_GetStocks.getStockData(intent.actions[0].parameters[0].value[0].entity);
         }
+
+        public static async Task getSportsData(TopScoringIntent intent)
+        {
+            YDN_GetStocks.getStockData(intent.actions[0].parameters[0].value[0].entity);
+        }
+
+        public static async Task getHoroscope(TopScoringIntent intent)
+        {
+            YDN_GetStocks.getStockData(intent.actions[0].parameters[0].value[0].entity);
+        }
     }
 }

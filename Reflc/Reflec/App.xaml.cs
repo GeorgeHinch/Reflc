@@ -35,11 +35,11 @@ namespace Reflec
 
             this.UnhandledException += (sender, e) =>
             {
-                //e.Handled = true;
-
                 SlackSender.slackExceptionSender(e.Exception);
                 
                 Debug.WriteLine("Unhandeled: " + e.Exception);
+
+                e.Handled = true;
             };
         }
 

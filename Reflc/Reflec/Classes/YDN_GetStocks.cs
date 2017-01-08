@@ -38,13 +38,13 @@ namespace Reflec.Classes
                     var serializer = new DataContractJsonSerializer(typeof(StockData));
                     var stockDetails = (StockData)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(Weather_Card), stockDetails);
+                    buildFrame.Navigate(typeof(Stock_Card), stockDetails);
                     MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(Weather_Card), null);
+                buildFrame.Navigate(typeof(Stock_Card), null);
                 MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
             }
         }
@@ -309,7 +309,7 @@ namespace Reflec.Classes
     public class Results
     {
         [DataMember]
-        public IList<Quote> quote { get; set; }
+        public Quote quote { get; set; }
     }
 
     [DataContract]
@@ -319,7 +319,7 @@ namespace Reflec.Classes
         public int count { get; set; }
 
         [DataMember]
-        public DateTime created { get; set; }
+        public string created { get; set; }
 
         [DataMember]
         public string lang { get; set; }

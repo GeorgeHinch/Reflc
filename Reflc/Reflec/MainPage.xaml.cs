@@ -348,5 +348,15 @@ namespace Reflec
         {
             NYT_TopStories.getTopStories();
         }
+
+        private void LoadStocks_Click(object sender, RoutedEventArgs e)
+        {
+            YDN_GetStocks.getStockData("GOOG");
+        }
+
+        private void LoadSports_Click(object sender, RoutedEventArgs e)
+        {
+            ESPN_SportsData.getSportData("seahawks");
+        }
     }
 }
