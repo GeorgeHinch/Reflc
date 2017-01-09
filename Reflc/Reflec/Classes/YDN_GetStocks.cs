@@ -35,17 +35,24 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(StockData));
-                    var stockDetails = (StockData)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(StockData));
+                        var stockDetails = (StockData)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(Stock_Card), stockDetails);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(Stock_Card), stockDetails);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
+                    
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(Stock_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         }
         #endregion

@@ -35,17 +35,24 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(OBA_StopAD));
-                    var stopDetails = (OBA_StopAD)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(OBA_StopAD));
+                        var stopDetails = (OBA_StopAD)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(OBA_Card), stopDetails);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(OBA_Card), stopDetails);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
+                    
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(OBA_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         }
         #endregion
@@ -69,17 +76,23 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(OBA_NearbyStop));
-                    var stopNearby = (OBA_NearbyStop)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(OBA_NearbyStop));
+                        var stopNearby = (OBA_NearbyStop)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(OBA_NearbyStops_Card), stopNearby);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(OBA_NearbyStops_Card), stopNearby);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(OBA_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         }
         #endregion

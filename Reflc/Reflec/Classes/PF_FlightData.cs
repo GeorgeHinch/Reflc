@@ -34,21 +34,27 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(FlightStats));
-                    var flightDetails = (FlightStats)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(FlightStats));
+                        var flightDetails = (FlightStats)serializer.ReadObject(stream);
 
-                    FlightStatsTotal returnFlightStats = new FlightStatsTotal();
-                    returnFlightStats.flightNum = flight;
-                    returnFlightStats.stats = flightDetails;
+                        FlightStatsTotal returnFlightStats = new FlightStatsTotal();
+                        returnFlightStats.flightNum = flight;
+                        returnFlightStats.stats = flightDetails;
 
-                    buildFrame.Navigate(typeof(Flight_Card), returnFlightStats);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(Flight_Card), returnFlightStats);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(Flight_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         }
 #endregion

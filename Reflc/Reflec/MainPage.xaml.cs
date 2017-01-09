@@ -17,7 +17,9 @@ using Windows.Media.Capture;
 using Windows.Media.SpeechRecognition;
 using Windows.Media.SpeechSynthesis;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Core;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -307,6 +309,30 @@ namespace Reflec
             }
 
             return true;
+        }
+
+        public static void buildError(bool errCatch)
+        {
+            TextBlock tb = new TextBlock();
+            tb.Width = 500;
+            tb.FontSize = 48;
+            tb.FontStyle = FontStyle.Italic;
+            tb.FontWeight = FontWeights.Thin;
+            tb.Margin = new Thickness(0, 0, 0, 25);
+            tb.TextAlignment = TextAlignment.Center;
+            tb.TextWrapping = TextWrapping.WrapWholeWords;
+            tb.Foreground = new SolidColorBrush(Colors.White);
+
+            if (!errCatch)
+            {
+                tb.Text = "Reflec could not process this request.";
+            }
+            else
+            {
+                tb.Text = "Reflec could not process this request.";
+            }
+
+            MainPage.mainPage.Main_StackPanel.Children.Add(tb);
         }
 
         private void Rain_Click(object sender, RoutedEventArgs e)

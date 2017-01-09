@@ -17,7 +17,7 @@ namespace Reflec.Classes
     class OWM_GetWeather
     {
         #region Gets current weather conditions
-        public static WeatherCurrent getCurrent(string city)
+        public static void getCurrent(string city)
         {
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
 
@@ -44,15 +44,23 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(WeatherCurrent));
-                    var weatherDetails = (WeatherCurrent)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(WeatherCurrent));
+                        var weatherDetails = (WeatherCurrent)serializer.ReadObject(stream);
 
-                    return weatherDetails;
+                        /*buildFrame.Navigate(typeof(Weather_Card), weatherDetails);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);*/
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
                 }
             }
             else
             {
-                return null;
+                MainPage.buildError(false);
             }
         }
         #endregion
@@ -86,17 +94,23 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(WeatherForecast));
-                    var weatherDetails = (WeatherForecast)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(WeatherForecast));
+                        var weatherDetails = (WeatherForecast)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(Weather_Card), weatherDetails);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(Weather_Card), weatherDetails);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(Weather_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         }
         #endregion

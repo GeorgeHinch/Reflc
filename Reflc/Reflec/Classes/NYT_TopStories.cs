@@ -31,17 +31,23 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(NYT_TopStoriesData));
-                    var topStories = (NYT_TopStoriesData)serializer.ReadObject(stream);
+                    try
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(NYT_TopStoriesData));
+                        var topStories = (NYT_TopStoriesData)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(NYT_TopStories_Card), topStories);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        buildFrame.Navigate(typeof(NYT_TopStories_Card), topStories);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+                    catch
+                    {
+                        MainPage.buildError(true);
+                    }
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(NYT_TopStories_Card), null);
-                MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                MainPage.buildError(false);
             }
         } 
     }
