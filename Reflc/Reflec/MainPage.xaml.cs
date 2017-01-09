@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Foundation;
@@ -50,17 +51,11 @@ namespace Reflec
 
             if (permissionGained)
             {
-                //btnContinuousRecognize.IsEnabled = true;
-
-                //PopulateLanguageDropdown();
                 await InitializeRecognizer(SpeechRecognizer.SystemSpeechLanguage);
             }
             else
             {
                 Debug.WriteLine("No microphone access");
-                //this.dictationTextBox.Text = "Permission to access capture resources was not given by the user, reset the application setting in Settings->Privacy->Microphone.";
-                //btnContinuousRecognize.IsEnabled = false;
-                //cbLanguageSelection.IsEnabled = false;
             }
 
             if (isListening == false)
@@ -96,9 +91,6 @@ namespace Reflec
                     try
                     {
                         await speechRecognizer.ContinuousRecognitionSession.StopAsync();
-
-                        // Ensure we don't leave any hypothesis text behind
-                        Debug.WriteLine("Ensure we don't leave any hypothesis text behind: " + dictatedTextBuilder.ToString());
                     }
                     catch (Exception exception)
                     {
@@ -114,10 +106,34 @@ namespace Reflec
             this.InitializeComponent();
             mainPage = this;
 
+            Main_StackPanel.SizeChanged += Main_StackPanel_SizeChanged;
+
             isListening = false;
             dictatedTextBuilder = new StringBuilder();
 
             DataBuilder.setWeatherAnimation();
+        }
+
+        private void Main_StackPanel_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(10);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            foreach(FrameworkElement c in Main_StackPanel.Children)
+            {
+                if (c.GetType().ToString() == "Windows.UI.Xaml.Controls.TextBlock")
+                {
+                    foreach (FrameworkElement item in Main_StackPanel.Children.OfType<TextBlock>())
+                    {
+                        Main_StackPanel.Children.Remove(item);
+                    }
+                }
+            }
         }
 
         protected async override void OnNavigatedFrom(NavigationEventArgs e)
@@ -167,7 +183,6 @@ namespace Reflec
             if (result.Status != SpeechRecognitionResultStatus.Success)
             {
                 Debug.WriteLine("Result Status: " + result.Status.ToString());
-                //rootPage.NotifyUser("Grammar Compilation Failed: " + result.Status.ToString(), NotifyType.ErrorMessage);
             }
 
             // Handle continuous recognition events. Completed fires when various error states occur. ResultGenerated fires when

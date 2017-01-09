@@ -12,14 +12,42 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" CornerRadius="15" Height="325" Margin="0,25">
         <StackPanel Orientation="Horizontal">
             <Image x:Name="ESPNLogo_Image" Margin="25,6,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="ms-appx:///Assets/Logos/Logo_ESPN.png" Height="25"/>
-            <TextBlock x:Name="Logo_TextBlock" Text="Football" FontWeight="Light" FontSize="20" Margin="7,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+            <TextBlock x:Name="Sports_Logo_TextBlock" Text="Football" FontWeight="Light" FontSize="20" Margin="7,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
         </StackPanel>
 
-        <Grid x:Name="FitbitGraph_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+        <Grid x:Name="Sports_GameSports_Grid" VerticalAlignment="Center" Height="265" Margin="0,10,0,0" BorderBrush="#FF666666" BorderThickness="0,.5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image x:Name="Sports_TeamLogo1_Image" Source="http://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png" Width="100" />
+                <TextBlock x:Name="Sports_TeamName1_Textblock" Text="Texans" HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel x:Name="Sports_GameScore_Stackpanel" Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed">
+                <TextBlock x:Name="Sports_Score_Textblock" Text="7-0" HorizontalAlignment="Center" FontSize="60" FontWeight="Thin" />
+                <TextBlock x:Name="Sports_Status_Textblock" Text="2:20 - 3rd" HorizontalAlignment="Center" />
+            </StackPanel>
+
+            <StackPanel x:Name="Sports_PreGame_Stackpanel" Orientation="Vertical" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock x:Name="Sports_PreLocation_Textblock" Text="Century Link Field" HorizontalAlignment="Center" FontSize="20" TextTrimming="CharacterEllipsis" />
+                <TextBlock x:Name="Sports_PreStatus_Textblock" Text="Saturday, Jan. 8, 5:15 PM" HorizontalAlignment="Center" />
+                <TextBlock x:Name="Sports_PreNetwork_Textblock" Text="NBC" HorizontalAlignment="Center" />
+                
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image x:Name="Sports_TeamLogo2_Image" Source="http://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/oak.png" Width="100" />
+                <TextBlock x:Name="Sports_TeamName2_Textblock" Text="Raiders" HorizontalAlignment="Center" />
+            </StackPanel>
         </Grid>
 
-        <TextBlock x:Name="FitbitAdditionalInfo_TextBlock" Text="Seattle, WA" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
+        <TextBlock x:Name="SportsAdditionalInfo_TextBlock" Text="Seattle, WA" HorizontalAlignment="Right" VerticalAlignment="Bottom" Padding="0,0,25,3" FontWeight="Light" />
 
     </Grid>
 </Page>

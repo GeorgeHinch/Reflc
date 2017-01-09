@@ -8,7 +8,11 @@ using System.Net.Http;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Text;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 
 namespace Reflec.Classes
 {
@@ -41,7 +45,7 @@ namespace Reflec.Classes
             else if (Teams_NFL.Contains(team))
             {
                 sport = "football";
-                league = "mlb";
+                league = "nfl";
             }
             else if (Teams_MLS.Contains(team))
             {
@@ -68,20 +72,60 @@ namespace Reflec.Classes
             var response = client.SendAsync(request).Result;
             if (response.StatusCode == HttpStatusCode.OK)
             {
-                var result = response.Content.ReadAsStringAsync().Result;
-                var bytes = Encoding.Unicode.GetBytes(result);
-                using (MemoryStream stream = new MemoryStream(bytes))
+                try
                 {
-                    var serializer = new DataContractJsonSerializer(typeof(StockData));
-                    var sportDetails = (StockData)serializer.ReadObject(stream);
+                    var result = response.Content.ReadAsStringAsync().Result;
+                    var bytes = Encoding.Unicode.GetBytes(result);
+                    using (MemoryStream stream = new MemoryStream(bytes))
+                    {
+                        var serializer = new DataContractJsonSerializer(typeof(SportsData));
+                        var sportDetails = (SportsData)serializer.ReadObject(stream);
 
-                    buildFrame.Navigate(typeof(Weather_Card), sportDetails);
-                    MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                        Event sportsEvent = null;
+                        int eventInt = 0;
+
+                        foreach (Event e in sportDetails.sports[0].leagues[0].events)
+                        {
+                            if (e.competitors[0].name.ToLower() == team)
+                            {
+                                sportsEvent = sportDetails.sports[0].leagues[0].events[eventInt];
+                            }
+
+                            else if (e.competitors[1].name.ToLower() == team)
+                            {
+                                sportsEvent = sportDetails.sports[0].leagues[0].events[eventInt];
+                            }
+
+                            else
+                            {
+                                eventInt++;
+                            }
+                        }
+
+                        buildFrame.Navigate(typeof(Sport_Card), sportsEvent);
+                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
+                    }
+
+                }
+                catch
+                {
+                    TextBlock tb = new TextBlock();
+                    tb.Width = 500;
+                    tb.FontSize = 48;
+                    tb.FontStyle = FontStyle.Italic;
+                    tb.FontWeight = FontWeights.Thin;
+                    tb.Margin = new Thickness(0, 0, 0, 25);
+                    tb.TextAlignment = TextAlignment.Center;
+                    tb.TextWrapping = TextWrapping.WrapWholeWords;
+                    tb.Foreground = new SolidColorBrush(Colors.White);
+                    tb.Text = "Reflec could not process this request.";
+                    
+                    MainPage.mainPage.Main_StackPanel.Children.Add(tb);
                 }
             }
             else
             {
-                buildFrame.Navigate(typeof(Weather_Card), null);
+                buildFrame.Navigate(typeof(Sport_Card), null);
                 MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);
             }
         }
@@ -100,8 +144,8 @@ namespace Reflec.Classes
     {
         public int id { get; set; }
         public string description { get; set; }
-        public DateTime detail { get; set; }
-        public DateTime shortDetail { get; set; }
+        public string detail { get; set; }
+        public string shortDetail { get; set; }
         public string state { get; set; }
     }
 
@@ -157,7 +201,7 @@ namespace Reflec.Classes
         public string id { get; set; }
         public string competitionId { get; set; }
         public string uid { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public bool timeValid { get; set; }
         public string location { get; set; }
         public int season { get; set; }
@@ -168,7 +212,7 @@ namespace Reflec.Classes
         public string clock { get; set; }
         public IList<Link> links { get; set; }
         public string status { get; set; }
-        public DateTime summary { get; set; }
+        public string summary { get; set; }
         public FullStatus fullStatus { get; set; }
         public string link { get; set; }
         public IList<Broadcast> broadcasts { get; set; }

@@ -313,7 +313,12 @@ namespace Reflec.Classes
 
             else if (epochDateTimeBuilder(flight.payload.statusData.depSchdUTC) < DateTime.UtcNow && epochDateTimeBuilder(flight.payload.statusData.arrEstUTC) > DateTime.UtcNow)
             {
-                returnInt = 50;
+                long estimatedArr = epochDateTimeBuilder(flight.payload.statusData.arrEstUTC).Ticks;
+                long acctualDep = epochDateTimeBuilder(flight.payload.statusData.depActUTC.Value).Ticks;
+
+                float timeDif = ((float)(estimatedArr - DateTime.UtcNow.Ticks) / (float)(estimatedArr - acctualDep));
+                float timePer = (timeDif * 100);
+                returnInt = 100 - (int)timePer;
             }
 
             else if (flight.payload.statusData.arrActUTC != null && epochDateTimeBuilder(flight.payload.statusData.arrActUTC.Value) < DateTime.UtcNow)

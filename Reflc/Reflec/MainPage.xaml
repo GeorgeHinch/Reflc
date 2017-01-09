@@ -31,15 +31,15 @@
 
             <Button Content="Clouds" Click="Clouds_Click" Foreground="White" />
 
-            <Button Content="Load Weather" Click="LoadWeather_Click" Foreground="White" />
+            <Button Content="Weather" Click="LoadWeather_Click" Foreground="White" />
 
-            <Button Content="Load NYT" Click="LoadTopStory_Click" Foreground="White" />
+            <Button Content="NYT" Click="LoadTopStory_Click" Foreground="White" />
 
-            <Button Content="Load GOOG" Click="LoadStocks_Click" Foreground="White" />
+            <Button Content="Stock" Click="LoadStocks_Click" Foreground="White" />
             
-            <Button Content="Load Sports" Click="LoadSports_Click" Foreground="White" />
+            <Button Content="Sports" Click="LoadSports_Click" Foreground="White" />
 
-            <Button Content="Load Flight" Click="LoadFlight_Click" Foreground="White" />
+            <Button Content="Flight" Click="LoadFlight_Click" Foreground="White" />
         </StackPanel>
 
     </Grid>

@@ -24,13 +24,13 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock x:Name="DepartAirport_Textblock" Grid.Column="0" Text="DFW" HorizontalAlignment="Left" Margin="0,0,0,2" />
+                    <TextBlock x:Name="DepartAirport_Textblock" Grid.Column="0" Text="DFW" HorizontalAlignment="Left" Margin="0,0,0,3" FontSize="20" />
 
                     <ProgressBar x:Name="FlightProg_ProgressBar" Grid.Column="1" Margin="15,0,15,0" Value="70" MinHeight="3" Height="3" Background="#FFE4E4E4" />
                     <Ellipse x:Name="FlightProg_Start_Ellipse" Grid.Column="1" Width="10" Height="10" HorizontalAlignment="Left" Margin="10,0,0,0" Fill="#FF0078D7" />
                     <Ellipse x:Name="FlightProg_End_Ellipse" Grid.Column="1" Width="10" Height="10" HorizontalAlignment="Right" Margin="0,0,10,0" Fill="#FFE4E4E4" />
 
-                    <TextBlock x:Name="ArriveAirport_Textblock" Grid.Column="2" Text="HNL" HorizontalAlignment="Right" Margin="0,0,0,2" />
+                    <TextBlock x:Name="ArriveAirport_Textblock" Grid.Column="2" Text="HNL" HorizontalAlignment="Right" Margin="0,0,0,3" FontSize="20" />
                 </Grid>
 
                 <Grid Width="500">
@@ -50,7 +50,7 @@
                     </StackPanel>
                 </Grid>
 
-                <TextBlock x:Name="GateInfo_Textblock" Text="Arrival Gate: M17" HorizontalAlignment="Center" Margin="0,25,0,0" />
+                <TextBlock x:Name="GateInfo_Textblock" Text="Arrival Gate: M17" HorizontalAlignment="Center" Margin="0,15,0,0" />
             </StackPanel>
         </Grid>
 

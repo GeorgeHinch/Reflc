@@ -110,7 +110,7 @@ namespace Reflec.Classes
 
         public static async Task getStockData(TopScoringIntent intent)
         {
-            YDN_GetStocks.getStockData(intent.actions[0].parameters[0].value[0].entity);
+            ESPN_SportsData.getSportData(intent.actions[0].parameters[0].value[0].entity);
         }
 
         public static async Task getSportsData(TopScoringIntent intent)
