@@ -40,6 +40,8 @@
             <Button Content="Sports" Click="LoadSports_Click" Foreground="White" />
 
             <Button Content="Flight" Click="LoadFlight_Click" Foreground="White" />
+            
+            <Button Content="Horoscope" Click="LoadHoroscope_Click" Foreground="White" />
         </StackPanel>
 
     </Grid>

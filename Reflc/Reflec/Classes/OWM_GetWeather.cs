@@ -17,7 +17,7 @@ namespace Reflec.Classes
     class OWM_GetWeather
     {
         #region Gets current weather conditions
-        public static void getCurrent(string city)
+        public static WeatherCurrent getCurrent(string city)
         {
             /*var roamingSettings = Windows.Storage.ApplicationData.Current.RoamingSettings;
 
@@ -44,23 +44,15 @@ namespace Reflec.Classes
                 var bytes = Encoding.Unicode.GetBytes(result);
                 using (MemoryStream stream = new MemoryStream(bytes))
                 {
-                    try
-                    {
-                        var serializer = new DataContractJsonSerializer(typeof(WeatherCurrent));
-                        var weatherDetails = (WeatherCurrent)serializer.ReadObject(stream);
+                    var serializer = new DataContractJsonSerializer(typeof(WeatherCurrent));
+                    var weatherDetails = (WeatherCurrent)serializer.ReadObject(stream);
 
-                        /*buildFrame.Navigate(typeof(Weather_Card), weatherDetails);
-                        MainPage.mainPage.Main_StackPanel.Children.Add(buildFrame);*/
-                    }
-                    catch
-                    {
-                        MainPage.buildError(true);
-                    }
+                    return weatherDetails;
                 }
             }
             else
             {
-                MainPage.buildError(false);
+                return null;
             }
         }
         #endregion

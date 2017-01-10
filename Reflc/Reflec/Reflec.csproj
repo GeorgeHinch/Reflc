@@ -122,6 +122,9 @@
     <Compile Include="Cards\Flight_Card.xaml.cs">
       <DependentUpon>Flight_Card.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Cards\Horoscope_card.xaml.cs">
+      <DependentUpon>Horoscope_card.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Cards\NYT_TopStories_Card.xaml.cs">
       <DependentUpon>NYT_TopStories_Card.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,7 @@
     <Compile Include="Classes\PF_FlightData.cs" />
     <Compile Include="Classes\Reflec_Tasks.cs" />
     <Compile Include="Classes\SlackSender.cs" />
+    <Compile Include="Classes\TP_Horoscope.cs" />
     <Compile Include="Classes\YDN_GetStocks.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -170,6 +174,20 @@
     <Content Include="Assets\Logos\Logo_Fitbit.png" />
     <Content Include="Assets\Logos\Logo_NYT.png" />
     <Content Include="Assets\Logos\Logo_Uber.png" />
+    <Content Include="Assets\Signs\Sign_Aries.png" />
+    <Content Include="Assets\Signs\Sign_Aquarius.png" />
+    <Content Include="Assets\Signs\Sign_Cancer.png" />
+    <Content Include="Assets\Signs\Sign_Capicorn.png" />
+    <Content Include="Assets\Signs\Sign_Gemini.png" />
+    <Content Include="Assets\Signs\Sign_Leo.png" />
+    <Content Include="Assets\Signs\Sign_Libra.png" />
+    <Content Include="Assets\Signs\Sign_Ophiuchus.png" />
+    <Content Include="Assets\Signs\Sign_Pisces.png" />
+    <Content Include="Assets\Signs\Sign_Scorpio.png" />
+    <Content Include="Assets\Signs\Sign_Sagittarius.png" />
+    <Content Include="Assets\Signs\Sign_Taurus.png" />
+    <Content Include="Assets\Signs\Sign_Unknown.png" />
+    <Content Include="Assets\Signs\Sign_Virgo.png" />
     <Content Include="Assets\Weather\Still\Cloudy.png" />
     <Content Include="Assets\Weather\Still\PartlyCloudy.png" />
     <Content Include="Assets\Weather\Still\Rain.png" />
@@ -222,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cards\Flight_Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Cards\Horoscope_card.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

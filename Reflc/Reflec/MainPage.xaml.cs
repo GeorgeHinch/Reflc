@@ -404,5 +404,10 @@ namespace Reflec
         {
             PF_FlightData.getFlightData("UA128");
         }
+
+        private void LoadHoroscope_Click(object sender, RoutedEventArgs e)
+        {
+            TP_Horoscope.getHoroscope("gemini");
+        }
     }
 }

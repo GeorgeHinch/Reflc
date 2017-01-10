@@ -46,7 +46,7 @@ namespace Reflec.Cards
                 Sports_PreNetwork_Textblock.Text = sportEvent.broadcast;
 
                 DateTime eventDate = DateTime.ParseExact("2017-01-08T01:15:00Z", "yyyy-MM-ddThh:mm:ssZ", CultureInfo.InvariantCulture);
-                Sports_PreStatus_Textblock.Text = eventDate.ToString("dddd, MMM d, hh:mm tt");
+                Sports_PreStatus_Textblock.Text = eventDate.ToString("dddd, MMM. d, hh:mm tt");
             }
             else
             {
