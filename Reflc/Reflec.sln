@@ -5,7 +5,16 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflec", "Reflec\Reflec.csproj", "{AB9C1091-37C6-4F11-A4A0-8685705F742A}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Reflec (Shared)", "Reflec (Shared)\Reflec (Shared).shproj", "{9F38C457-592C-4E52-815F-26EE54C86DDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflec Companion", "Reflec Companion\Reflec Companion.csproj", "{06C97C08-199C-4003-82A2-94854F9526BE}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Reflec (Shared)\Reflec (Shared).projitems*{06c97c08-199c-4003-82a2-94854f9526be}*SharedItemsImports = 4
+		Reflec (Shared)\Reflec (Shared).projitems*{9f38c457-592c-4e52-815f-26ee54c86dde}*SharedItemsImports = 13
+		Reflec (Shared)\Reflec (Shared).projitems*{ab9c1091-37c6-4f11-a4a0-8685705f742a}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
@@ -37,6 +46,26 @@ Global
 		{AB9C1091-37C6-4F11-A4A0-8685705F742A}.Release|x86.ActiveCfg = Release|x86
 		{AB9C1091-37C6-4F11-A4A0-8685705F742A}.Release|x86.Build.0 = Release|x86
 		{AB9C1091-37C6-4F11-A4A0-8685705F742A}.Release|x86.Deploy.0 = Release|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|ARM.Build.0 = Debug|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x64.ActiveCfg = Debug|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x64.Build.0 = Debug|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x64.Deploy.0 = Debug|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x86.ActiveCfg = Debug|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x86.Build.0 = Debug|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Debug|x86.Deploy.0 = Debug|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|Any CPU.ActiveCfg = Release|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|ARM.ActiveCfg = Release|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|ARM.Build.0 = Release|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|ARM.Deploy.0 = Release|ARM
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x64.ActiveCfg = Release|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x64.Build.0 = Release|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x64.Deploy.0 = Release|x64
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x86.ActiveCfg = Release|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x86.Build.0 = Release|x86
+		{06C97C08-199C-4003-82A2-94854F9526BE}.Release|x86.Deploy.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
